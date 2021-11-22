@@ -62,35 +62,22 @@ const testQuestions = [
     message: "Which tests do you need to run for your project?",
   },
 ];
-
-const generateTitle = (readMeAnswers) => {
-  return `# Title: ${questions.title} [${questions.hasLicense}](https://img.shields.io/static/v1?label=${questions.hasLicense}&message=License&color=green)`;
-};
-
-const generateDescription = (readMeAnswers) => {
-  return `## Description: ${questions.description}`;
-};
-const generateContributing = (readMeAnswers) => {
-  return ` ## Contributing: ${questions.contributing}`;
-};
-const generateUsage = (usageAnswers) => {
-  return `## Usage
-  
-  To use the application run the following script: ${usageAnswers}`;
-};
-const generateInstallation = (installationAnswers) => {
-  return ` ## Installation
-  
-  Run the following script to install the packages required for the application: ${installationAnswers}`;
-};
-const generateTest = (testAnswers) => {
-  return ` ## Test
-  
-  To test the application run the following script: ${testAnswers}`;
-};
-
-const generateReadMe = (readMeAnswers) => {
-  return `${generateTitle} ${generateDescription} ${generateContributing} ${generateUsage} ${generateInstallation} ${generateTest}`;
+const generateReadMe = (
+  readMeAnswers,
+  usageAnswers,
+  installationAnswers,
+  testAnswers
+) => {
+  return `# Title: ${readMeAnswers.title} [${readMeAnswers.hasLicense}](https://img.shields.io/static/v1?label=&message=License&color=green)
+  ## Description: ${readMeAnswers.description}
+  ## Contributing: ${readMeAnswers.contributing}
+  ## Usage:
+  To use the application run the following script: ${usageAnswers}
+  ## Installation
+  Run the following script to install the packages required for the application: ${installationAnswers}
+  ## Test
+  To test the application run the following script: ${testAnswers};
+  `;
 };
 
 const start = async () => {
@@ -110,8 +97,8 @@ const start = async () => {
 
   const dataToWrite = generateReadMe(
     readMeAnswers,
-    installationAnswers,
     usageAnswers,
+    installationAnswers,
     testAnswers
   );
 
