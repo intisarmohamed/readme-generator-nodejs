@@ -62,12 +62,21 @@ const testQuestions = [
     message: "Which tests do you need to run for your project?",
   },
 ];
+const tableOfContents = `## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [Test Instructions](#test-instructions)
+- [Contact Information](#contact-information)`;
 const generateReadMe = (
   readMeAnswers,
   usageAnswers,
   installationAnswers,
   testAnswers
 ) => {
+  const contents = tableOfContents;
+
   const test = testAnswers
     ? `## Test\n To test the application run the following script:\`\`\`${testAnswers.test}\`\`\``
     : "";
@@ -80,6 +89,7 @@ const generateReadMe = (
     : "";
 
   return `
+ ${contents}
 # ${readMeAnswers.title} [${readMeAnswers.hasLicense}](https://img.shields.io/static/v1?label=&message=License&color=green)
 ## Description:\n ${readMeAnswers.description}
 ## Contributing:\n ${readMeAnswers.contributing}
