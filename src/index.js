@@ -125,6 +125,6 @@ const start = async () => {
   );
 
   // write to file with data and path
-  util.writeToFile("Readme.md", dataToWrite);
+  util.writeToFile("SampleReadme.md", dataToWrite);
 };
 start();
